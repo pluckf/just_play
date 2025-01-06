@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3h2uef3k1w0d"]
+[gd_scene load_steps=9 format=3 uid="uid://c3h2uef3k1w0d"]
 
 [ext_resource type="Script" path="res://game_control.gd" id="1_5q38o"]
 [ext_resource type="Texture2D" uid="uid://cukyvtrn1khmr" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_tkqac"]
 [ext_resource type="PackedScene" uid="uid://y48t8dltsrtd" path="res://player.tscn" id="2_yt8rk"]
 [ext_resource type="PackedScene" uid="uid://d1lawjfi85hce" path="res://enemy.tscn" id="3_aualq"]
 [ext_resource type="FontFile" uid="uid://buax7mr2kqm4t" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="5_gjjiw"]
+[ext_resource type="PackedScene" uid="uid://cniavplpuhi61" path="res://npc.tscn" id="6_uukv5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6k6ny"]
 distance = -15.1668
@@ -108,5 +109,8 @@ theme_override_fonts/font = ExtResource("5_gjjiw")
 theme_override_font_sizes/font_size = 90
 text = "GAMEOVER"
 horizontal_alignment = 1
+
+[node name="Area2D" parent="." instance=ExtResource("6_uukv5")]
+position = Vector2(-35, 27)
 
 [connection signal="timeout" from="spawn_timer" to="." method="spwan_enemy"]

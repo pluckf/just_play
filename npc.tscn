@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cniavplpuhi61"]
+
+[ext_resource type="Texture2D" uid="uid://bh8lk2pesor68" path="res://AssetBundle/Sprites/robot.png" id="1_7oa4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oby0k"]
+size = Vector2(41, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hacc8"]
+atlas = ExtResource("1_7oa4b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2117l"]
+atlas = ExtResource("1_7oa4b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkhyg"]
+atlas = ExtResource("1_7oa4b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymklx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hacc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2117l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkhyg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="npc" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_oby0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -3)
+scale = Vector2(1.625, 1.6875)
+sprite_frames = SubResource("SpriteFrames_ymklx")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.425093
